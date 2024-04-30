@@ -5,21 +5,7 @@ import { pluginReact } from '@rsbuild/plugin-react';
 
 export default defineConfig({
   plugins: [pluginNodePolyfill(), pluginReact()],
-  output: {
-    assetPrefix: './'
-  },
-  source: {
-    alias: {
-      '@': './src'
-    }
-  },
-  tools: {
-    rspack: {
-      resolve: {
-        fallback: {
-          encoding: false
-        }
-      }
-    }
-  }
+  output: { assetPrefix: './' },
+  source: { alias: { '@': './src' } },
+  tools: { rspack: { resolve: { fallback: { encoding: false } } } }
 });
