@@ -38,7 +38,7 @@ export const Toolbar = memo(() => {
       <Select options={docOptions} onChange={changeShowPaperKey} placeholder="请选择文档" style={{ width: 200 }} />
       <div />
       <Button type="primary" onClick={() => download({ papers, showPaperKey, forms })}>下载当前页</Button>
-      <Button onClick={() => downloadAll({ papers, forms })}>下载所有页面</Button>
+      <Button onClick={() => downloadAll({ papers, forms, showPackageKey })}>下载所有页面</Button>
     </ToolbarWrapper>
   );
 });

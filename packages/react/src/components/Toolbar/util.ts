@@ -16,8 +16,8 @@ export const download = async ({ papers, showPaperKey, forms }) => {
 };
 
 export const downloadAll = async (
-  { papers, forms }:
-  { papers: Record<string, any>, forms:Record<string, string> }
+  { papers, forms, showPackageKey }:
+  { papers: Record<string, any>, forms:Record<string, string>, showPackageKey: string }
 ) => {
   // 尝试获取一次缺失文件
   const { successPapers } = await fetchLostPapers(papers);
@@ -49,5 +49,5 @@ export const downloadAll = async (
 
   // 生成 zip 文件
   const content = await zip.generateAsync({ type: 'blob' });
-  saveAs(content, 'documents.zip');
+  saveAs(content, `${showPackageKey}.zip`);
 };
