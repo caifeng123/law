@@ -1,0 +1,46 @@
+{
+  "name": "monorepo-frame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:react": "turbo build --filter rsbuild-react-ts",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "ci": "turbo run deploy",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.json": [
+      "prettier --write"
+    ],
+    "*.{t,j}s?(x)": [
+      "eslint --fix"
+    ],
+    "*.yaml": [
+      "prettier --parser=yaml --write"
+    ]
+  },
+  "keywords": [],
+  "author": "caifeng01",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^2.8.8",
+    "turbo": "^1.11.2",
+    "typescript": "^5.1.5",
+    "vitest": "^1.1.0"
+  }
+}
