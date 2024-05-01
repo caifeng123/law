@@ -1,11 +1,9 @@
 import { Config } from '@/utils/types';
 
-export const InitalConfig: Config = {
+export const InitalConfig = {
   packages: {},
-  forms: {},
-  showPaperKey: '',
-  showPackageKey: ''
-};
+  forms: {}
+} as Config;
 
 export const formItems = [
   'complaintName',

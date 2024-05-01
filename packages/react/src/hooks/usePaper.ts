@@ -6,7 +6,10 @@ export const usePaper = () => {
   const { config, setImmerConfig } = useContext(ConfigConetxt);
 
   const changeShowPaperKey = (key: string) => setImmerConfig({ showPaperKey: key });
-  const changeShowPackageKey = (key: string) => setImmerConfig({ showPackageKey: key, showPaperKey: '' });
+  const changeShowPackageKey = (key: string) => setImmerConfig({
+    showPackageKey: key,
+    showPaperKey: undefined
+  });
 
   const setPaperDetail = (
     rawHtml: string,
