@@ -12,6 +12,7 @@ const MiddleTips = styled.div`
   place-items: center center;
   height: 100%;
   font-size: 30px;
+  text-align: center;
 `;
 
 export const DisplayArea = memo(() => {
