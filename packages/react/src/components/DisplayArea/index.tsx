@@ -18,7 +18,11 @@ export const DisplayArea = memo(() => {
   const [html, setHtml] = useState('');
   const { forms, showPaperKey, packages, showPackageKey, setPaperDetail } = usePaper();
   const papers = packages[showPackageKey] ?? {};
-  const { data, error, loading, run } = useRequest(fetchDetailHtml, { manual: true });
+  const { data, loading, run } = useRequest(fetchDetailHtml, {
+    manual: true,
+    onError: () => setHtml(''),
+    onBefore: () => setHtml('')
+  });
 
   useEffect(() => {
     if (showPaperKey) {
@@ -41,13 +45,13 @@ export const DisplayArea = memo(() => {
   if (!showPaperKey) {
     return <MiddleTips>请在左上角选择检查文案</MiddleTips>;
   }
-  if (error) {
+  if (loading) {
+    return <MiddleTips>加载中...</MiddleTips>;
+  }
+  if (!html) {
     return (
       <MiddleTips>请求出错 请看控制台</MiddleTips>
     );
-  }
-  if (loading) {
-    return <MiddleTips>加载中...</MiddleTips>;
   }
   return (
     <CombinedDisplay html={html} forms={forms} />
