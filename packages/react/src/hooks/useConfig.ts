@@ -68,7 +68,7 @@ export const useConfig = () => {
           ...all,
           [packageKey]: {
             ...all[packageKey],
-            [fileName]: { path, raw: '', html: '' }
+            [fileName]: { path }
           }
         };
       }

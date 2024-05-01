@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 
+import { getPaperFormItems } from '@/utils';
+
 import { ConfigConetxt } from './context';
 
 export const usePaper = () => {
@@ -18,6 +20,7 @@ export const usePaper = () => {
     setImmerConfig((conf) => {
       const tempConf = { ...conf };
       const paper = tempConf.packages[conf.showPackageKey][conf.showPaperKey];
+      paper.formItems = getPaperFormItems(rawHtml);
       paper.html = html;
       paper.raw = rawHtml;
       return tempConf;

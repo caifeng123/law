@@ -14,6 +14,11 @@ export const replaceSpecialHTMLToDownload = (html: string, forms) => {
   return res;
 };
 
+export const getPaperFormItems = (html: string) => {
+  const matches = Array.from(html.matchAll(/\[(.*?)\]/g));
+  return [...new Set(matches.map((match) => match[1]))].sort();
+};
+
 export const fetchDetailHtml = async (path: string) => {
   if (!path) {
     throw new Error('empty path, check query');
@@ -39,6 +44,7 @@ export const fetchLostPapers = async (papers: Record<string, Paper>) => {
         paperKey,
         raw: data.value,
         html: finalHTML,
+        formItems: getPaperFormItems(data.value),
         path
       };
     })

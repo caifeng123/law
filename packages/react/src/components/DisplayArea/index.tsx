@@ -43,7 +43,14 @@ export const DisplayArea = memo(() => {
   }, [data]);
 
   if (!showPaperKey) {
-    return <MiddleTips>请在左上角选择检查文案</MiddleTips>;
+    return (
+      <MiddleTips>
+        <div>
+          <div>展示区</div>
+          请在左上角选择检查文案
+        </div>
+      </MiddleTips>
+    );
   }
   if (loading) {
     return <MiddleTips>加载中...</MiddleTips>;

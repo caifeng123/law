@@ -1,4 +1,9 @@
-export type Paper = { path: string, raw?: string, html?: string };
+export type Paper = {
+  path: string,
+  raw?: string,
+  html?: string,
+  formItems?: string[]
+};
 
 export type Config = {
   packages: Record<string, Record<string, Paper>>;
