@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Button, Select } from 'antd';
+import { Button, Select, Tooltip } from 'antd';
 import { memo, useMemo } from 'react';
 
 import { usePaper } from '@/hooks/usePaper';
@@ -10,6 +10,7 @@ const ToolbarWrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto 1fr auto auto;
   grid-gap: 20px;
+  align-items: center;
 `;
 
 export const Toolbar = memo(() => {
@@ -36,7 +37,18 @@ export const Toolbar = memo(() => {
     <ToolbarWrapper>
       <Select value={showPackageKey} options={dirOptions} onChange={changeShowPackageKey} placeholder="请选择文件夹" style={{ width: 200 }} />
       <Select value={showPaperKey} options={docOptions} onChange={changeShowPaperKey} placeholder="请选择文档" style={{ width: 200 }} />
-      <div />
+      <div>
+        <Tooltip title="添加完 请刷新页面">
+          <a
+            target="_blank"
+            style={{ textDecoration: 'none' }}
+            href="https://gitee.com/cc123nice/law_packages"
+            rel="noreferrer"
+          >
+            添加模版
+          </a>
+        </Tooltip>
+      </div>
       <Button type="primary" onClick={() => download({ papers, showPaperKey, forms })}>下载当前页</Button>
       <Button onClick={() => downloadAll({ papers, forms, showPackageKey })}>下载所有页面</Button>
     </ToolbarWrapper>
