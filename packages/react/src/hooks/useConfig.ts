@@ -64,6 +64,10 @@ export const useConfig = () => {
         };
       } if (type === 'blob') {
         const [packageKey, fileName] = path.split('/');
+        // 非子目录且非docx文件 不解析显示
+        if (!fileName || !fileName?.endsWith('.docx')) {
+          return all;
+        }
         return {
           ...all,
           [packageKey]: {
